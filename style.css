@@ -8,3 +8,7 @@ body {
     background-color: black;
     color: white;
 }
+
+.movie {
+    margin-bottom: 2rem;
+}

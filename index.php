@@ -1,78 +1,64 @@
 <?php
 
-class Movies {
+class Movies
+{
     public $name;
     public $cost;
     public $where;
 
-
-
-function setName($name) {
-    $this->name = $name;
-}
-
-function getName() {
-   return $this->name;
-}
-
-function setCost($cost) {
-    $this->cost = $cost;
-}
-
-function getCost() {
-    return $this->cost;
-}
-function setWhere($where) {
-    $this->where = $where;
-}
-
-function getWhere() {
-    return $this->where;
-}
-
+    function films()
+    {
+        return "<strong>Film:</strong> $this->name <br> 
+                <strong>Cost:</strong> $this->cost <br>
+                <strong>Where:</strong> $this->where";
+    }
 }
 
 
-$spiderman = new movies ();
-$spiderman->setName ('Spiderman');
-$spiderman->setCost('10.00€');
-$spiderman->setWhere('Milano');
+$spiderman = new movies();
+$spiderman->name = 'Spiderman';
+$spiderman->cost = '10.00€';
+$spiderman->where = 'Milano';
 
-$nemo = new movies ();
-$nemo->setName ('Nemo');
-$nemo->setCost('8.00€');
-$nemo->setWhere('Firenze');
+$nemo = new movies();
+$nemo->name = 'Nemo';
+$nemo->cost = '8.00€';
+$nemo->where = 'Firenze';
 
-$frozen = new movies ();
-$frozen->setName ('Frozen');
-$frozen->setCost('12.00€');
-$frozen->setWhere('Parma');
+$frozen = new movies();
+$frozen->name = 'Frozen';
+$frozen->cost = '12.00€';
+$frozen->where = 'Parma';
 
-$madagascar = new movies ();
-$madagascar->setName ('madagascar');
-$madagascar->setCost('5.00€');
-$madagascar->setWhere('Torino');
+$madagascar = new movies();
+$madagascar->name = 'madagascar';
+$madagascar->cost = '5.00€';
+$madagascar->where = 'Torino';
+
+$Movies = [$spiderman, $nemo, $frozen, $madagascar];
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<?php
+    <h1>Movies</h1>
 
-echo "Name: " . $spiderman->getName();
-echo "<br>";
-echo "Cost: " .  $spiderman->getCost();
-echo "<br>";
-echo "Where: " . $spiderman->getWhere();
+    <ul>
+        <?php foreach ($Movies as $film) { ?>
+            <li class="movie"><?php echo $film->films(); ?></li>
+        <?php } ?>
+    </ul>
 
-?>
-    
 </body>
+
 </html>
